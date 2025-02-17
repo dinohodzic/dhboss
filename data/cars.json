@@ -1,0 +1,55 @@
+{
+  "topPicks": [
+    {
+      "id": 1,
+      "category": "Hatchback",
+      "name": "Toyota Yaris",
+      "transmission": "Automatic/Manual",
+      "seats": 3,
+      "bags": 1,
+      "rating": 4.7,
+      "price": 70,
+      "image": "/placeholder.svg?height=200&width=300",
+      "isBooked": false
+    },
+    {
+      "id": 2,
+      "category": "Minivan",
+      "name": "Alphard",
+      "transmission": "Automatic",
+      "seats": 3,
+      "bags": 2,
+      "rating": 4.8,
+      "price": 95,
+      "image": "/placeholder.svg?height=200&width=300",
+      "isBooked": true,
+      "availableFrom": "2024-02-20T00:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "category": "SUV",
+      "name": "Lexus NX-300",
+      "transmission": "Automatic",
+      "seats": 3,
+      "bags": 2,
+      "rating": 4.7,
+      "price": 88,
+      "image": "/placeholder.svg?height=200&width=300",
+      "isBooked": false
+    },
+    {
+      "id": 4,
+      "category": "Sedan",
+      "name": "Camry",
+      "transmission": "Automatic",
+      "seats": 3,
+      "bags": 2,
+      "rating": 4.9,
+      "price": 50,
+      "image": "/placeholder.svg?height=200&width=300",
+      "isBooked": true,
+      "availableFrom": "2024-02-25T00:00:00.000Z"
+    }
+  ]
+}
+
