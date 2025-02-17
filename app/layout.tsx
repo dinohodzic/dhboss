@@ -41,7 +41,6 @@ export default function RootLayout({
         <link rel="icon" href="/images/logo.png" type="image/png" /> {/* Favicon link */}
       </head>
       <body className={inter.className}>
-        <NavBar />
         {children}
         <Footer />
       </body>

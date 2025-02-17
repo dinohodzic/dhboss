@@ -33,8 +33,7 @@ const carData = {
   images: [
     "/placeholder.svg?height=600&width=800",
     "/placeholder.svg?height=600&width=800",
-    "/placeholder.svg?height=600&width=800",
-    "/placeholder.svg?height=600&width=800",
+  
   ],
   description:
     "The Toyota Camry is a reliable and comfortable sedan, perfect for both city driving and long trips. With its hybrid engine, you'll enjoy excellent fuel economy without compromising on performance. This model comes equipped with a range of modern features to enhance your driving experience.",
