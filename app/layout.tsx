@@ -1,9 +1,12 @@
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import type React from "react" // Importing React
-import "./globals.css"
+// app/layout.tsx
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { Footer } from "@/components/footer";
+import { NavBar } from "@/components/nav-bar";
+import Image from "next/image";
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Rent a Car in Sarajevo | Best Deals with DHBOSS",
@@ -30,16 +33,18 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <head>
-
-  <link rel="icon" href="/images/logo.png" type="image/png" /> {/* Favicon link */}
+        <link rel="icon" href="/images/logo.png" type="image/png" /> {/* Favicon link */}
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <NavBar />
+        {children}
+        <Footer />
+      </body>
     </html>
-  )
+  );
 }
-
