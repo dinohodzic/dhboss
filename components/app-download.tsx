@@ -25,7 +25,7 @@ export function AppDownload() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button className="h-[60px]" variant="outline">
                   <Image
-                    src="/placeholder.svg?height=40&width=135"
+                    src="/images/app-store.png"
                     alt="Download on the App Store"
                     width={135}
                     height={40}
@@ -33,7 +33,7 @@ export function AppDownload() {
                 </Button>
                 <Button className="h-[60px]" variant="outline">
                   <Image
-                    src="/placeholder.svg?height=40&width=135"
+                    src="/images/google-play.png"
                     alt="Get it on Google Play"
                     width={135}
                     height={40}

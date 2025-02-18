@@ -5,17 +5,23 @@ import { LocationLinks } from "@/components/location-links"
 import { PromotionalDeals } from "@/components/promotional-deals"
 import { AppDownload } from "@/components/app-download"
 import { Footer } from "@/components/footer"
+import { TrustSignals } from "@/components/trust-signals"
+import { TestimonialCarousel } from "@/components/testimonial-carousel"
+import { FeaturedDestinations } from "@/components/featured-destinations"
 
 export default function Home() {
   return (
     <main>
-      <NavBar />
-      <HeroSection />
-      <VehicleShowcase />
-      <LocationLinks />
-      <AppDownload />
-      <PromotionalDeals />
-      <Footer />
+     <NavBar />
+<HeroSection />
+<VehicleShowcase />
+<PromotionalDeals />
+<TestimonialCarousel />
+<LocationLinks />
+<FeaturedDestinations />
+<AppDownload />
+<TrustSignals />
+<Footer />
     </main>
   )
 }

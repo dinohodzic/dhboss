@@ -1,31 +1,14 @@
-import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Facebook, Instagram, Twitter, Youtube, CreditCard, Lock } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 export function Footer() {
   const footerLinks = {
-    About: [
-      { name: "How it works", href: "/how-it-works" },
-      { name: "Featured", href: "/featured" },
-      { name: "Partnership", href: "/partnership" },
-      { name: "Business Relations", href: "/business-relations" },
-    ],
-    Community: [
-      { name: "Events", href: "/events" },
-      { name: "Blog", href: "/blog" },
-    ],
-    Socials: [
-      { name: "Facebook", href: "https://www.facebook.com/dhbosscarrental", icon: Facebook },
-      { name: "Twitter", href: "https://www.twitter.com/dhbosscarrental", icon: Twitter },
-      { name: "Instagram", href: "https://www.instagram.com/dhbosscarrental", icon: Instagram },
-      { name: "YouTube", href: "https://www.youtube.com/channel/UCYOUR_CHANNEL_ID", icon: Youtube },
-    ],
-    Legal: [
-      { name: "Terms & Conditions", href: "/terms-and-conditions" },
-      { name: "Privacy Policy", href: "/privacy-policy" },
-      { name: "Cookie Policy", href: "/cookie-policy" },
-    ],
-  };
+    About: ["How it works", "Featured", "Partnership", "Business Relation"],
+    Community: ["Events", "Blog", "Podcast", "Invite a friend"],
+    Socials: ["Discord", "Instagram", "Twitter", "Facebook"],
+    Legal: ["Terms & Conditions", "Privacy Policy", "Cookie Policy"],
+  }
 
   return (
     <footer className="bg-secondary mt-12">
@@ -33,41 +16,50 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h3 className="font-bold mb-4 text-primary">{category}</h3>
+              <h3 className="font-bold mb-4">{category}</h3>
               <ul className="space-y-2">
                 {links.map((link) => (
-                  <li key={link.name}>
-                    {link.icon ? (
-                      <Link href={link.href} className="text-sm text-muted-foreground hover:text-primary">
-                        <Button variant="ghost" size="icon">
-                          <link.icon className="h-5 w-5" />
-                        </Button>
-                        {link.name}
-                      </Link>
-                    ) : (
-                      <Link href={link.href} className="text-sm text-muted-foreground hover:text-primary">
-                        {link.name}
-                      </Link>
-                    )}
+                  <li key={link}>
+                    <a href="#" className="text-sm text-muted-foreground hover:text-primary">
+                      {link}
+                    </a>
                   </li>
                 ))}
               </ul>
             </div>
           ))}
         </div>
+
+        <div className="mt-8 pt-8 border-t border-gray-200">
+          <h3 className="text-sm font-semibold mb-4">Secure Payments</h3>
+          <div className="flex items-center space-x-4">
+            <CreditCard className="h-8 w-8 text-gray-400" />
+            <Image src="/images/mastercard-logo.png" alt="Mastercard" width={48} height={32} />
+            <Image src="/images/visa.png" alt="Visa" width={48} height={16} />
+            <Lock className="h-6 w-6 text-green-500" />
+            <span className="text-sm text-muted-foreground">SSL Encrypted</span>
+          </div>
+        </div>
+
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 md:flex-row">
-          <p className="text-sm text-muted-foreground">© 2025 DHBOSS. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">© 2024 Horizone. All rights reserved.</p>
           <div className="flex gap-4">
-            {footerLinks.Socials.map((social) => (
-              <Button key={social.name} variant="ghost" size="icon" asChild>
-                <a href={social.href} target="_blank" rel="noopener noreferrer">
-                  <social.icon className="h-5 w-5 text-primary hover:text-primary/80 transition-colors" />
-                </a>
-              </Button>
-            ))}
+            <Button variant="ghost" size="icon">
+              <Facebook className="h-5 w-5" />
+            </Button>
+            <Button variant="ghost" size="icon">
+              <Twitter className="h-5 w-5" />
+            </Button>
+            <Button variant="ghost" size="icon">
+              <Instagram className="h-5 w-5" />
+            </Button>
+            <Button variant="ghost" size="icon">
+              <Youtube className="h-5 w-5" />
+            </Button>
           </div>
         </div>
       </div>
     </footer>
-  );
+  )
 }
+

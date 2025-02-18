@@ -1,5 +1,5 @@
 "use client";
-import { Calendar } from "@/components/ui/calendar";
+import { DateTimePicker24h } from "@/components/ui/date-time";
 import {
   Popover,
   PopoverContent,
@@ -21,13 +21,13 @@ export function HeroSection() {
     <div className="relative min-h-[600px] flex items-center justify-center overflow-hidden">
       {/* Gradient Background */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          background:
-            "linear-gradient(135deg, #0F172A 0%,rgb(0, 0, 0) 100%)", // Dark gradient for a sleek look
-        }}
+        className="absolute inset-0 bg-cover bg-center bg-secondary"
+        // style={{
+        //   background:
+        //     "linear-gradient(135deg, #0F172A 0%,rgb(0, 0, 0) 100%)", // Dark gradient for a sleek look
+        // }}
       >
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0" />
       </div>
 
       {/* Content Section */}
@@ -89,11 +89,8 @@ export function HeroSection() {
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent className="w-auto p-0" align="start">
-                  <Calendar
-                    mode="single"
-                    selected={pickupDate}
-                    onSelect={setPickupDate}
-                    initialFocus
+                  <DateTimePicker24h
+                   
                   />
                 </PopoverContent>
               </Popover>
@@ -119,11 +116,8 @@ export function HeroSection() {
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent className="w-auto p-0" align="start">
-                  <Calendar
-                    mode="single"
-                    selected={returnDate}
-                    onSelect={setReturnDate}
-                    initialFocus
+                  <DateTimePicker24h
+                   
                   />
                 </PopoverContent>
               </Popover>
