@@ -4,11 +4,12 @@ import Image from "next/image"
 
 export function Footer() {
   const footerLinks = {
-    About: ["How it works", "Featured", "Partnership", "Business Relation"],
-    Community: ["Events", "Blog", "Podcast", "Invite a friend"],
-    Socials: ["Discord", "Instagram", "Twitter", "Facebook"],
-    Legal: ["Terms & Conditions", "Privacy Policy", "Cookie Policy"],
-  }
+    About: ["How It Works", "About Us", "Our Team", "Careers"],
+    Services: ["Car Rental",  "Airport Transfers", "Special Offers"],
+    Help: ["FAQ", "Contact Us", "Reservations", "Returns"],
+    Policies: ["Terms & Conditions", "Privacy Policy", "Cookie Policy", "Cancellation Policy"],
+    Socials: ["Facebook", "Instagram", "Twitter"],
+  };
 
   return (
     <footer className="bg-secondary mt-12">
