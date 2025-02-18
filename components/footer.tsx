@@ -8,7 +8,6 @@ export function Footer() {
     Services: ["Car Rental",  "Airport Transfers", "Special Offers"],
     Help: ["FAQ", "Contact Us", "Reservations", "Returns"],
     Policies: ["Terms & Conditions", "Privacy Policy", "Cookie Policy", "Cancellation Policy"],
-    Socials: ["Facebook", "Instagram", "Twitter"],
   };
 
   return (
