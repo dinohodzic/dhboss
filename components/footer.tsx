@@ -42,7 +42,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 md:flex-row">
-          <p className="text-sm text-muted-foreground">© 2024 Horizone. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">© 2025 DHBoss. All rights reserved.</p>
           <div className="flex gap-4">
             <Button variant="ghost" size="icon">
               <Facebook className="h-5 w-5" />
