@@ -23,7 +23,7 @@ export function AppDownload() {
                 app.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="h-[60px]" variant="outline">
+                <Button className="h-[60px]" variant="ghost">
                   <Image
                     src="/images/app-store.png"
                     alt="Download on the App Store"
@@ -31,7 +31,7 @@ export function AppDownload() {
                     height={40}
                   />
                 </Button>
-                <Button className="h-[60px]" variant="outline">
+                <Button className="h-[60px]" variant="ghost">
                   <Image
                     src="/images/google-play.png"
                     alt="Get it on Google Play"

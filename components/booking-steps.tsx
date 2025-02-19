@@ -52,7 +52,7 @@ export function BookingSteps() {
                 <p className="text-muted-foreground">{step.description}</p>
               </div>
               {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-12 left-[60%] w-[calc(100%-60%)] h-[2px] bg-primary/20">
+                <div className="hidden md:block absolute">
                   <motion.div
                     className="h-full bg-primary"
                     initial={{ scaleX: 0 }}

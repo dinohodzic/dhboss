@@ -22,17 +22,16 @@ export function HeroSection() {
       {/* Gradient Background */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-secondary"
-        // style={{
-        //   background:
-        //     "linear-gradient(135deg, #0F172A 0%,rgb(0, 0, 0) 100%)", // Dark gradient for a sleek look
-        // }}
+        style={{
+          backgroundImage: `url(/images/bg.svg)`,
+        }}
       >
         <div className="absolute inset-0" />
       </div>
 
       {/* Content Section */}
       <div className="container relative z-10 mx-auto px-4 pt-20">
-      <h1 className="mb-8 text-4xl font-bold text-white md:text-5xl lg:text-6xl tracking-tight">
+      <h1 className="mb-8 text-4xl font-bold text-black md:text-5xl lg:text-6xl tracking-tight">
   Rent a Car for Every Journey – Explore with Ease
 </h1>
 

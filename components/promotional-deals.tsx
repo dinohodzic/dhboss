@@ -16,11 +16,11 @@ export function PromotionalDeals() {
         <Card className="relative overflow-hidden">
           <CardContent className="p-6">
             <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30" />
-            <Image src="/placeholder.svg?height=200&width=300" alt="Promotional offer" fill className="object-cover" />
+            <Image src="/images/bg.svg?height=200&width=300" alt="Promotional offer" fill className="object-cover" />
             <div className="relative z-10 text-white">
-              <p className="text-sm font-medium">Limited time offer</p>
-              <p className="text-4xl font-bold">40%</p>
-              <p className="mt-2">Off on your first ride</p>
+              <p className="text-sm text-black font-medium">Limited time offer</p>
+              <p className="text-4xl text-black font-bold">40%</p>
+              <p className="mt-2 text-black">Off on your first ride</p>
             </div>
           </CardContent>
         </Card>
@@ -28,11 +28,11 @@ export function PromotionalDeals() {
         <Card className="relative overflow-hidden">
           <CardContent className="p-6">
             <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30" />
-            <Image src="/placeholder.svg?height=200&width=300" alt="Special discount" fill className="object-cover" />
-            <div className="relative z-10 text-white">
-              <p className="text-sm font-medium">Special discount</p>
-              <p className="text-4xl font-bold">65%</p>
-              <p className="mt-2">For weekend trips</p>
+            <Image src="/images/bg.svg?height=200&width=300" alt="Special discount" fill className="object-cover" />
+            <div className="relative text-black z-10 text-white">
+              <p className="text-sm  text-black font-medium">Special discount</p>
+              <p className="text-4xl text-black font-bold">65%</p>
+              <p className="mt-2 text-black">For weekend trips</p>
             </div>
           </CardContent>
         </Card>
@@ -40,10 +40,10 @@ export function PromotionalDeals() {
         <Card className="relative overflow-hidden md:col-span-2">
           <CardContent className="p-6">
             <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30" />
-            <Image src="/placeholder.svg?height=300&width=600" alt="Luxury comfort" fill className="object-cover" />
+            <Image src="/images/bg.svg?height=300&width=600" alt="Luxury comfort" fill className="object-cover" />
             <div className="relative z-10 text-white max-w-[50%]">
-              <h3 className="text-xl font-bold mb-2">A whole new level of comfort</h3>
-              <p className="text-sm mb-4">Experience premium features and service</p>
+              <h3 className="text-xl text-black font-bold mb-2">A whole new level of comfort</h3>
+              <p className="text-sm text-black mb-4">Experience premium features and service</p>
               <Button variant="secondary" size="sm">
                 Explore more
               </Button>
