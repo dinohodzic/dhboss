@@ -75,7 +75,7 @@ export function CarCard({
           </div>
           <div className="mt-4 flex items-center justify-between">
             <div>
-              <span className="text-2xl font-bold">${price}</span>
+              <span className="text-2xl font-bold">EUR {price}</span>
               <span className="text-sm text-muted-foreground">/day</span>
             </div>
             {!isBooked && (

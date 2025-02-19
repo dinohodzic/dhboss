@@ -44,10 +44,7 @@ export function FeaturedDestinations() {
         ref={parallaxRef}
         className="absolute inset-0 z-0"
         style={{
-            backgroundColor: "var(--secondary-color)", // Use the secondary color variable
-
-          backgroundPosition: "center",
-          transform: "translateY(0)",
+          backgroundImage: `url(/images/bg.svg)`,
         }}
       />
       <div className="container mx-auto px-4 relative z-10">
