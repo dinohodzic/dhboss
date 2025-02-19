@@ -20,7 +20,7 @@ export default function BlogPost() {
           <h1 className="text-4xl font-bold mb-4">Top 10 Scenic Drives Around Sarajevo</h1>
           <p className="text-muted-foreground mb-8">Published on February 15, 2024</p>
           <Image
-            src="/placeholder.svg?height=600&width=1200"
+            src="/images/sarajevo.jpg"
             alt="Scenic drive near Sarajevo"
             width={1200}
             height={600}

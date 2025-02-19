@@ -1,0 +1,98 @@
+{
+    "cars": [
+      {
+        "id": 1,
+        "name": "Toyota Yaris",
+        "category": "Hatchback",
+        "transmission": "Automatic/Manual",
+        "seats": 5,
+        "bags": 2,
+        "rating": 4.7,
+        "price": 70,
+        "image": "/images/cars/1.png",
+        "images": [
+          "/images/cars/1.png",
+          "/images/cars/2.png",
+          "/images/cars/3.png",
+          "/images/cars/5.png",
+          "/images/cars/6.png",
+          "/images/cars/7.png"
+          
+        ],
+        "description": "The Toyota Yaris is a compact and fuel-efficient hatchback, perfect for city driving and easy parking. With its reliable performance and modern features, it's an excellent choice for both daily commutes and weekend getaways.",
+        "fuelType": "Petrol",
+        "mileage": "135 000 km",
+        "location": "Sarajevo",
+        "features": [
+          "Bluetooth Connection",
+          "Backup Camera",
+          "Apple CarPlay",
+          "Android Auto",
+          "USB Port",
+          "Climate Control",
+          "Power Windows",
+          "ABS Brakes"
+        ],
+        "insuranceOptions": [
+          {
+            "name": "Basic",
+            "price": 10,
+            "coverage": ["Third-party liability", "Basic collision coverage"]
+          },
+          {
+            "name": "Premium",
+            "price": 20,
+            "coverage": ["Full comprehensive coverage", "Zero deductible", "24/7 roadside assistance"]
+          }
+        ],
+        "isBooked": false
+      },
+      {
+        "id": 2,
+        "name": "Mercedes-Benz E-Class",
+        "category": "Luxury",
+        "transmission": "Automatic",
+        "seats": 5,
+        "bags": 3,
+        "rating": 4.9,
+        "price": 150,
+        "image": "/images/2.png",
+        "images": [
+          "/images/3.png"
+          
+        ],
+        "description": "Experience luxury and comfort with the Mercedes-Benz E-Class. This premium sedan offers exceptional ride quality, advanced technology features, and sophisticated styling. Perfect for business trips or luxury travel experiences.",
+        "fuelType": "Diesel",
+        "mileage": "195 000 km",
+        "location": "Sarajevo",
+        "reviews": 120,
+        "features": [
+          "Premium Sound System",
+          "Leather Seats",
+          "Navigation System",
+          "Sunroof/Moonroof",
+          "Heated Seats",
+          "Wireless Charging",
+          "360-Degree Camera",
+          "Lane Departure Warning",
+          "Adaptive Cruise Control",
+          "Premium Audio System"
+        ],
+        "insuranceOptions": [
+          {
+            "name": "Basic",
+            "price": 15,
+            "coverage": ["Third-party liability", "Basic collision coverage"]
+          },
+          {
+            "name": "Premium",
+            "price": 30,
+            "coverage": ["Full comprehensive coverage", "Zero deductible", "24/7 roadside assistance"]
+          }
+        ],
+        "isBooked": false
+      }
+    ]
+     
+}
+  

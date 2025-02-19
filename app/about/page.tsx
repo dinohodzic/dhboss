@@ -18,7 +18,7 @@ export default function AboutPage() {
       <main>
         <div className="relative h-[300px] md:h-[400px]">
           <Image
-            src="/placeholder.svg?height=400&width=1200"
+            src="/images/bg.svg?height=400&width=1200"
             alt="DHBOSS Car Rental Sarajevo Office"
             fill
             className="object-cover"
