@@ -125,17 +125,12 @@ export function HeroSection() {
 
           {/* Additional Options and Search Button */}
           <div className="mt-6 flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <Switch id="driver" />
-              <Label htmlFor="driver" className="text-sm text-muted-foreground">
-                With Driver
-              </Label>
-            </div>
-            <Button className="bg-black hover:bg-primary/90 transition-colors rounded-lg px-6 py-3 text-lg font-medium">
-              <Search className="mr-2 h-4 w-4" />
-              Search
-            </Button>
-          </div>
+  <Button className="ml-auto bg-black hover:bg-primary/90 transition-colors rounded-lg px-6 py-3 text-lg font-medium">
+    <Search className="mr-2 h-4 w-4" />
+    Search
+  </Button>
+</div>
+
         </div>
       </div>
     </div>

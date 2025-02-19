@@ -40,6 +40,7 @@ const generateTimeSlots = () => {
 
 const timeSlots = generateTimeSlots()
 
+// Update the CarDetailsProps interface to include reservations
 interface CarDetailsProps {
   car: {
     id: number
@@ -61,6 +62,10 @@ interface CarDetailsProps {
       name: string
       price: number
       coverage: string[]
+    }[]
+    reservations?: {
+      startDate: string
+      endDate: string
     }[]
   }
 }
@@ -175,6 +180,36 @@ export function CarDetails({ car }: CarDetailsProps) {
     }
   }
 
+  // Add this function inside CarDetails component, before the return statement
+  const isDateReserved = (date: Date) => {
+    if (!car.reservations) return false
+
+    return car.reservations.some((reservation) => {
+      const start = new Date(reservation.startDate)
+      const end = new Date(reservation.endDate)
+      return date >= start && date <= end
+    })
+  }
+
+  // Add this function to get the next available date
+  const getNextAvailableDate = (date: Date): Date => {
+    if (!car.reservations) return date
+
+    const nextDate = new Date(date)
+    while (isDateReserved(nextDate)) {
+      nextDate.setDate(nextDate.getDate() + 1)
+    }
+    return nextDate
+  }
+
+  // Add this component for the tooltip
+  const ReservationTooltip = () => (
+    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-secondary text-secondary-foreground text-sm rounded shadow-lg whitespace-nowrap">
+      Car is reserved for these dates
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 rotate-45 w-2 h-2 bg-secondary" />
+    </div>
+  )
+
   return (
     <main className="container mx-auto px-4 py-12 pt-20">
       <div className="grid gap-8 lg:grid-cols-3">
@@ -222,7 +257,11 @@ export function CarDetails({ car }: CarDetailsProps) {
                 <h1 className="text-3xl font-bold mb-2">{car.name}</h1>
                 <div className="flex flex-wrap items-center gap-3">
                   <Badge className="px-3 py-1">{car.category}</Badge>
-                  
+                  <div className="flex items-center gap-1">
+                    <Star className="h-5 w-5 text-yellow-400 fill-current" />
+                    <span className="font-semibold">{car.rating}</span>
+                    <span className="text-muted-foreground">({car.reviews} reviews)</span>
+                  </div>
                   <div className="flex items-center gap-1 text-muted-foreground">
                     <MapPin className="h-4 w-4" />
                     <span>{car.location}</span>
@@ -230,7 +269,7 @@ export function CarDetails({ car }: CarDetailsProps) {
                 </div>
               </div>
               <div className="text-right">
-                <div className="text-3xl font-bold">EUR {car.price}</div>
+                <div className="text-3xl font-bold">${car.price}</div>
                 <div className="text-muted-foreground">per day</div>
               </div>
             </div>
@@ -336,10 +375,10 @@ export function CarDetails({ car }: CarDetailsProps) {
               </div>
 
               {/* Pickup Date and Time */}
-              <div className="space-y-3">
+              <div className="space-y-4">
                 <div>
                   <div className="flex flex-col md:flex-row md:justify-between md:gap-2">
-                    <Label className="md">Pickup Date & Time</Label>
+                    <Label className="md:pt-2">Pickup Date & Time</Label>
                   </div>
                   <div className="relative grid grid-cols-2 md:grid-cols-1 gap-2">
                     <Popover>
@@ -353,12 +392,40 @@ export function CarDetails({ car }: CarDetailsProps) {
                         <Calendar
                           mode="single"
                           selected={formData.pickupDate}
-                          onSelect={(date) => handleFormChange("pickupDate", date)}
-                          disabled={(date) => date < new Date()}
+                          onSelect={(date) => {
+                            if (date) {
+                              const nextAvailable = getNextAvailableDate(date)
+                              handleFormChange("pickupDate", nextAvailable)
+
+                              // If return date is before or equal to pickup date, update it
+                              if (formData.returnDate && formData.returnDate <= nextAvailable) {
+                                handleFormChange(
+                                  "returnDate",
+                                  getNextAvailableDate(new Date(nextAvailable.getTime() + 86400000)),
+                                )
+                              }
+                            }
+                          }}
+                          disabled={(date) => {
+                            const today = new Date()
+                            today.setHours(0, 0, 0, 0)
+                            return date < today || isDateReserved(date)
+                          }}
+                          modifiers={{
+                            reserved: (date) => isDateReserved(date),
+                          }}
+                          modifiersStyles={{
+                            reserved: {
+                              backgroundColor: "var(--secondary)",
+                              color: "var(--secondary-foreground)",
+                              opacity: 0.5,
+                            },
+                          }}
                           initialFocus
                         />
                       </PopoverContent>
                     </Popover>
+                    <div className="text-sm text-muted-foreground mt-1">Reserved dates are shown in gray</div>
 
                     <Select
                       value={formData.pickupTime}
@@ -395,15 +462,36 @@ export function CarDetails({ car }: CarDetailsProps) {
                         <Calendar
                           mode="single"
                           selected={formData.returnDate}
-                          onSelect={(date) => handleFormChange("returnDate", date)}
+                          onSelect={(date) => {
+                            if (date) {
+                              const nextAvailable = getNextAvailableDate(date)
+                              handleFormChange("returnDate", nextAvailable)
+                            }
+                          }}
                           disabled={(date) => {
                             const today = new Date()
-                            return date < today || (formData.pickupDate ? date < formData.pickupDate : false)
+                            today.setHours(0, 0, 0, 0)
+                            return (
+                              date < today ||
+                              (formData.pickupDate ? date <= formData.pickupDate : false) ||
+                              isDateReserved(date)
+                            )
+                          }}
+                          modifiers={{
+                            reserved: (date) => isDateReserved(date),
+                          }}
+                          modifiersStyles={{
+                            reserved: {
+                              backgroundColor: "var(--secondary)",
+                              color: "var(--secondary-foreground)",
+                              opacity: 0.5,
+                            },
                           }}
                           initialFocus
                         />
                       </PopoverContent>
                     </Popover>
+                    <div className="text-sm text-muted-foreground mt-1">Reserved dates are shown in gray</div>
 
                     <Select
                       value={formData.returnTime}
@@ -444,7 +532,7 @@ export function CarDetails({ car }: CarDetailsProps) {
                     >
                       <div className="flex justify-between items-center mb-2">
                         <div className="font-semibold">{option.name}</div>
-                        <div>EUR {option.price}/day</div>
+                        <div>${option.price}/day</div>
                       </div>
                       <ul className="text-sm text-muted-foreground">
                         {option.coverage.map((item, index) => (
@@ -468,10 +556,10 @@ export function CarDetails({ car }: CarDetailsProps) {
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Car Rental</span>
                     <div className="text-right">
-                      <div>EUR {car.price}/day</div>
+                      <div>${car.price}/day</div>
                       {calculateDuration() > 0 && (
                         <div className="text-sm text-muted-foreground">
-                          EUR {calculateTotalPrice().rentalPrice} for {calculateDuration()} days
+                          ${calculateTotalPrice().rentalPrice} for {calculateDuration()} days
                         </div>
                       )}
                     </div>
@@ -480,11 +568,11 @@ export function CarDetails({ car }: CarDetailsProps) {
                     <span className="text-muted-foreground">Insurance</span>
                     <div className="text-right">
                       <div>
-                      EUR {car.insuranceOptions.find((option) => option.name === selectedInsurance)?.price || 0}/day
+                        ${car.insuranceOptions.find((option) => option.name === selectedInsurance)?.price || 0}/day
                       </div>
                       {calculateDuration() > 0 && (
                         <div className="text-sm text-muted-foreground">
-                          EUR {calculateTotalPrice().insurancePrice} for {calculateDuration()} days
+                          ${calculateTotalPrice().insurancePrice} for {calculateDuration()} days
                         </div>
                       )}
                     </div>
@@ -494,7 +582,7 @@ export function CarDetails({ car }: CarDetailsProps) {
                       <Separator className="my-2" />
                       <div className="flex justify-between font-semibold">
                         <span>Total</span>
-                        <span>EUR {calculateTotalPrice().total}</span>
+                        <span>${calculateTotalPrice().total}</span>
                       </div>
                       <div className="text-sm text-muted-foreground text-right">
                         for {calculateDuration()} {calculateDuration() === 1 ? "day" : "days"}

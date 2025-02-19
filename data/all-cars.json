@@ -45,6 +45,16 @@
             "coverage": ["Full comprehensive coverage", "Zero deductible", "24/7 roadside assistance"]
           }
         ],
+        "reservations": [
+        {
+          "startDate": "2025-02-25T00:00:00.000Z",
+          "endDate": "2025-02-28T00:00:00.000Z"
+        },
+        {
+          "startDate": "2025-03-15T00:00:00.000Z",
+          "endDate": "2025-03-20T00:00:00.000Z"
+        }
+      ],
         "isBooked": false
       },
       {
