@@ -8,12 +8,14 @@ import { Footer } from "@/components/footer"
 import { TrustSignals } from "@/components/trust-signals"
 import { TestimonialCarousel } from "@/components/testimonial-carousel"
 import { FeaturedDestinations } from "@/components/featured-destinations"
+import { BookingSteps } from "@/components/booking-steps"
 
 export default function Home() {
   return (
     <main>
      <NavBar />
 <HeroSection />
+<BookingSteps />
 <VehicleShowcase />
 <PromotionalDeals />
 <TestimonialCarousel />
