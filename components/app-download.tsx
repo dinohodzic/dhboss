@@ -17,7 +17,7 @@ export function AppDownload() {
               />
             </div>
             <div className="flex flex-col justify-center p-6 md:p-12">
-              <h2 className="text-3xl font-bold mb-4">Download the DHBOSS App</h2>
+              <h2 className="text-3xl font-bold mb-4">Download the DHBOSS App.</h2>
               <p className="text-lg text-muted-foreground mb-8">
                 Book your next car rental in seconds. Get exclusive deals and manage your reservations with our mobile
                 app.
