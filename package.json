@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "install": "npm install react-day-picker@^8.9.1 --legacy-peer-deps"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.3",
